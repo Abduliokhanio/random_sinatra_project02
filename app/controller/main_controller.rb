@@ -6,4 +6,12 @@ class MainController < Sinatra::Base
     get '/' do
         erb :'main_page'
     end
+
+    get '/login' do 
+        erb :'registration/login'
+    end
+
+    get '/signup' do
+        erb :'session/signup'
+    end
 end 
