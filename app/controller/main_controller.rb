@@ -16,7 +16,8 @@ class MainController < Sinatra::Base
     end
 
     post '/registration' do
-        @user = params[:username]
+        @username = params[:username]
+        @password = params[:password]
         erb :'employee/main_pg_employees'
     end
 
