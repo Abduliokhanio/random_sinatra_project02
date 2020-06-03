@@ -2,11 +2,11 @@
 
  |X|  1)Build an MVC Sinatra application.
 
- | |  2)Use ActiveRecord with Sinatra.
+ |X|  2)Use ActiveRecord with Sinatra.
 
- | |  3)Use multiple models.
+ |X|  3)Use multiple models.
 
- | |  4)Use at least one has_many relationship on a User model and one belongs_to relationship on another model.
+ |X|  4)Use at least one has_many relationship on a User model and one belongs_to relationship on another model.
 
  | |  5)Must have user accounts - users must be able to sign up, sign in, and sign out.
 
