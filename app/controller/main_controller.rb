@@ -8,10 +8,19 @@ class MainController < Sinatra::Base
     end
 
     get '/login' do 
-        erb :'registration/login'
+        erb :'sessions/login'
     end
 
     get '/signup' do
-        erb :'session/signup'
+        erb :'registration/signup'
     end
+
+    get '/welcome' do
+        erb :'employee/main_pg_employees'
+    end
+
+    post '/registration' do
+        redirect '/welcome'
+    end
+
 end 
