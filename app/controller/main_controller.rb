@@ -17,7 +17,7 @@ class MainController < Sinatra::Base
 
     post '/registration' do
         @user = Employee.create(username: params[:username], password: params[:password])
-        erb :'employee/main_pg_employees'
+        redirect "/dynamic/#{@user.id}/welcome"
     end
 
     post '/loginauth' do
