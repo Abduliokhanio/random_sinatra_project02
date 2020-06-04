@@ -1,5 +1,6 @@
 class MainController < Sinatra::Base
     register Sinatra::ActiveRecordExtension
+    enable :sessions
     set :session_secret, "my_application_secret"
     set :views, Proc.new { File.join(root, "../views/") }
 
@@ -33,11 +34,16 @@ class MainController < Sinatra::Base
 
     get '/dynamic/:id/welcome' do
         @user = Employee.find_by(id: params[:id])
-
         erb :'employee/main_pg_employees'
     end
 
+    get '/logout' do 
+        redirect "/"
+    end 
 
-
+    get '/hey' do 
+        @session = session
+        "#{@session}"
+    end 
 
 end 
