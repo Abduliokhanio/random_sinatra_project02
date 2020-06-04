@@ -1,0 +1,26 @@
+-app (Holds MVC)
+	--models
+		---employee.rd
+		---ticket.rb
+	--views
+		---employees
+			----employees_index.erb
+		---other model erb 
+			----other_files.erb	
+	--controllers
+		---Main App_controller.rb
+		---other controllers
+
+-config (Overall Configurations)
+	--environment.rb
+
+-db
+	--migrate (Helps Activerecord Create Databases)
+		---01_create_employees_table.rb
+		---02_create_tickets_table.rb
+		---other tables you might need
+
+-config.ru (For the application to run properly)
+-Gemfile (Contains all the gems)
+-Rakefile
+-Readme
