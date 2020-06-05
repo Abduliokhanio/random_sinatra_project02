@@ -1,7 +1,7 @@
 class MainController < Sinatra::Base
     register Sinatra::ActiveRecordExtension
     enable :sessions
-    set :session_secret, "my_application_secret"
+    set :session_secret, SecureRandom.hex(64)
     set :views, Proc.new { File.join(root, "../views/") }
 
     get '/' do
@@ -18,32 +18,42 @@ class MainController < Sinatra::Base
 
     post '/registration' do
         @user = Employee.create(username: params[:username], password: params[:password])
-        redirect "/dynamic/#{@user.id}/welcome"
+        session[:user_id] = @user.id
+        sesh_id = session[:user_id] 
+        redirect "/dynamic/#{sesh_id}/welcome"
     end
 
     post '/loginauth' do
         @user = Employee.find_by(username: params[:username], password: params[:password])
-        
+
         if @user 
-            #erb :'employee/main_pg_employees'
-            redirect "/dynamic/#{@user.id}/welcome"
+            @session = session
+            sesh_id = @session[:session_id] 
+            redirect "/dynamic/#{@user.id}/#{sesh_id}/welcome"
         else
             erb :'registration/signup'
         end 
     end
 
-    get '/dynamic/:id/welcome' do
+    get '/dynamic/:id/:sesh_id/welcome' do
         @user = Employee.find_by(id: params[:id])
         erb :'employee/main_pg_employees'
     end
 
-    get '/logout' do 
+    get '/dynamic/:id/all_tics' do
+        @user = Employee.find_by(id: params[:id])
+        erb :'ticket/main_pg_tickets'
+    end 
+
+    get '/logout' do
+        session.clear 
         redirect "/"
     end 
 
     get '/hey' do 
         @session = session
-        "#{@session}"
+        @user = Employee.find_by(id: params[:id])
+        binding.pry
     end 
 
 end 
