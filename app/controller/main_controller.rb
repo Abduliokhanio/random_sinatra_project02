@@ -24,13 +24,14 @@ class MainController < Sinatra::Base
     end
 
     post '/loginauth' do
-        @user = Employee.find_by(username: params[:username], password: params[:password])
+        @user = Employee.find_by(username: params[:username])
 
         @session = session
-        if @user #&& @user[:sesh_id] == nil
+        if @user && @user.authenticate(params[:password])
             @user[:sesh_id] = rand(1..100000000000)
             @user.save
             logout = "dynamic/#{@user.id}/logout"
+            
             redirect "/dynamic/#{@user.id}/#{@user[:sesh_id]}/welcome"
         else
             erb :'registration/signup'
