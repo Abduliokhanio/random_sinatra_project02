@@ -25,11 +25,12 @@ class MainController < Sinatra::Base
 
     post '/loginauth' do
         @user = Employee.find_by(username: params[:username], password: params[:password])
-        if @user && @user[:sesh_id] == nil
-            @user[:sesh_id] = rand(1..100)
+
+        @session = session
+        if @user #&& @user[:sesh_id] == nil
+            @user[:sesh_id] = rand(1..100000000000)
             @user.save
-            redirect "/dynamic/#{@user.id}/#{@user[:sesh_id]}/welcome"
-        elsif @user
+            logout = "dynamic/#{@user.id}/logout"
             redirect "/dynamic/#{@user.id}/#{@user[:sesh_id]}/welcome"
         else
             erb :'registration/signup'
@@ -37,7 +38,7 @@ class MainController < Sinatra::Base
     end
 
     get '/dynamic/:id/:sesh_id/welcome' do
-        @user = Employee.find_by(id: params[:id])
+        @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id] )
         erb :'employee/main_pg_employees'
     end
 
@@ -46,11 +47,10 @@ class MainController < Sinatra::Base
         erb :'ticket/main_pg_tickets'
     end 
 
-    get '/logout' do
-        @user = Employee.find_by(params[:id])
+    get '/dynamic/:id/:sesh_id/logout' do
+        @user = Employee.find_by(id: params[:id])
         @user[:sesh_id] = nil
         @user.save
-        binding.pry
         redirect '/login'
     end 
 
