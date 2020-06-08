@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 1) do
     t.string "name"
     t.string "username"
     t.string "password"
+    t.integer "sesh_id"
   end
 
 end
