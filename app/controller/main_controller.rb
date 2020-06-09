@@ -31,6 +31,7 @@ class MainController < Sinatra::Base
             @user[:sesh_id] = rand(1..100000000000)
             @user.save
             logout = "dynamic/#{@user.id}/logout"
+            all_tickets = "/dynamic/#{@user.id}/all_tics"
             
             redirect "/dynamic/#{@user.id}/#{@user[:sesh_id]}/welcome"
         else
@@ -43,7 +44,7 @@ class MainController < Sinatra::Base
         erb :'employee/main_pg_employees'
     end
 
-    get '/dynamic/:id/all_tics' do
+    get '/dynamic/:id/:sesh_id/all_tickets' do
         @user = Employee.find_by(id: params[:id])
         erb :'ticket/main_pg_tickets'
     end 
