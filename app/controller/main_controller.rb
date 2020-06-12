@@ -43,27 +43,27 @@ class MainController < Sinatra::Base
     end
 
     get '/dynamic/:id/:sesh_id/all_tickets' do
-        @user = Employee.find_by(id: params[:id])
+        @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
         erb :'ticket/main_pg_tickets'
     end 
 
     get '/dynamic/:id/:sesh_id/create_tickets' do
-        @user = Employee.find_by(id: params[:id])
+        @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
         erb :'ticket/user_creates_ticket_for_self'
     end
 
     get '/dynamic/:id/:sesh_id/read_ticket' do
-        @user = Employee.find_by(id: params[:id])
+        @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
         erb :'ticket/read_ticket'
     end
 
     get '/dynamic/:id/:sesh_id/update_delete_ticket' do
-        @user = Employee.find_by(id: params[:id])
+        @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
         erb :'ticket/update_delete'
     end
 
     get '/dynamic/:id/:sesh_id/logout' do
-        @user = Employee.find_by(id: params[:id])
+        @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
         @user[:sesh_id] = nil
         @user.save
         redirect '/login'
