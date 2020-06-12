@@ -44,6 +44,7 @@ class MainController < Sinatra::Base
 
     get '/dynamic/:id/:sesh_id/all_tickets' do
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
+        @tickets = Ticket.all
         erb :'ticket/main_pg_tickets'
     end 
 

@@ -32,7 +32,7 @@ Here are your tickets:<br>
         <th>Created At</th>
         <th>Updated At</th>
     </tr>
-    <% Tickets.all.each do |ticket| %>
+    <% @user.tickets.each do |ticket| %>
         <tr>
         <td><%=ticket.id%></td>
         <td><%=ticket.title%></td>
