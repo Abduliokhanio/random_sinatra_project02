@@ -30,9 +30,7 @@ class MainController < Sinatra::Base
         if @user && @user.authenticate(params[:password])
             @user[:sesh_id] = rand(1..100000000000)
             @user.save
-            logout = "dynamic/#{@user.id}/logout"
             all_tickets = "/dynamic/#{@user.id}/all_tics"
-            
             redirect "/dynamic/#{@user.id}/#{@user[:sesh_id]}/welcome"
         else
             erb :'registration/signup'
