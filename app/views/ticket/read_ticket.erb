@@ -18,26 +18,31 @@ tr:nth-child(even) {
 }
 </style>
 
-<table>
-    <tr>
-        <th>Ticket ID</th>
-        <th>Ticket Title</th>
-        <th>Ticket Details</th>
-        <th>Owned By</th>
-        <th>Created At</th>
-        <th>Updated At</th>
-        <th>Delete</th>
-    </tr>
-        <tr>
-        <td><%=@ticket.id%></td>
-        <td><%=@ticket.title%></td>
-        <td><%=@ticket.details%></td>
-        <td><%=@ticket.employee.username%></td>
-        <td><%=@ticket.created_at%></td>
-        <td><%=@ticket.updated_at%></td>
-        <td><a href =>Delete</a></td>
-        </tr>
-</table>
 
-<a href="/dynamic/<%= @ticket.employee.id %>/<%= @ticket.employee.sesh_id %>/welcome">Here are all the tickets the user is working on</a><br>
-<a href="/dynamic/<%= @ticket.employee.id %>/<%= @ticket.employee.sesh_id %>/logout">logout</a>
+
+<h3 style="text-decoration: underline;">Ticket ID</h3>
+<p><%=@ticket.id%></p>
+
+<h3 style="text-decoration: underline;">Ticket Title</h3>
+<p><%=@ticket.title%></p>
+
+<h3 style="text-decoration: underline;">Ticket Details</h3>
+<p><%=@ticket.details%></p>
+
+<h3 style="text-decoration: underline;">Owned By</h3>
+<p><%=@ticket.employee.username%></p>
+
+<h3 style="text-decoration: underline;">Created At</h3>
+<p><%=@ticket.created_at%></p>
+
+<h3 style="text-decoration: underline;">Updated At</h3>
+<p><%=@ticket.updated_at%></p>
+
+<h3 style="text-decoration: underline;">Delete</h3>
+<p><a href =>Delete</a></p>
+
+======================================<br>
+<br>
+
+<a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome">Here are all the tickets the user is working on</a><br>
+<a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/logout">logout</a>
