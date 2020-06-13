@@ -38,9 +38,10 @@ tr:nth-child(even) {
 <h3 style="text-decoration: underline;">Updated At</h3>
 <p><%=@ticket.updated_at%></p>
 
-<h3 style="text-decoration: underline;">Delete</h3>
-<p><a href =>Delete</a></p>
-
+<%if @ticket.employee.id == @user.id%>
+  <h3 style="text-decoration: underline;">Delete</h3>
+  <p><a href =>Delete</a></p>
+<%end%>
 ======================================<br>
 <br>
 
