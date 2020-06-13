@@ -37,6 +37,8 @@ tr:nth-child(even) {
 <p><%=@ticket.updated_at%></p>
 
 <%if @ticket.employee.id == @user.id%>
+  <h3 style="text-decoration: underline;">Update</h3>
+  <p><a href = "/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/update_ticket/<%=@ticket.id%>">Update</a></p>
   <h3 style="text-decoration: underline;">Delete</h3>
   <p><a href = "/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/delete_ticket/<%=@ticket.id%>">Delete</a></p>
 <%end%>
