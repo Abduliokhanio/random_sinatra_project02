@@ -32,7 +32,9 @@ Here are your team's tickets:<br>
         <th>Owned By</th>
         <th>Created At</th>
         <th>Updated At</th>
+        <th>Read</th>
     </tr>
+    <%count = 1%>
     <% @tickets.each do |ticket| %>
         <tr>
         <td><%=ticket.id%></td>
@@ -41,6 +43,8 @@ Here are your team's tickets:<br>
         <td><%=ticket.employee.username%></td>
         <td><%=ticket.created_at%></td>
         <td><%=ticket.updated_at%></td>
+        <td><a href =read_ticket/<%=ticket.id%>>Read</a> </td>
+        <% count += 1 %>
         </tr>
     <%end%>
 </table>

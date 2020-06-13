@@ -1,1 +1,42 @@
 this is the page where a user can find more information about a particular ticket
+<br>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+
+<br>
+<table>
+    <tr>
+        <th>Ticket ID</th>
+        <th>Ticket Title</th>
+        <th>Ticket Details</th>
+        <th>Owned By</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Delete</th>
+    </tr>
+        <tr>
+        <td><%=@ticket.id%></td>
+        <td><%=@ticket.title%></td>
+        <td><%=@ticket.details%></td>
+        <td><%=@ticket.employee.username%></td>
+        <td><%=@ticket.created_at%></td>
+        <td><%=@ticket.updated_at%></td>
+        <td>Delete</td>
+        </tr>
+</table>

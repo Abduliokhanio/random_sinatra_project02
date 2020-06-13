@@ -30,7 +30,6 @@ class MainController < Sinatra::Base
         if @user && @user.authenticate(params[:password])
             @user[:sesh_id] = rand(1..100000000000)
             @user.save
-            all_tickets = "/dynamic/#{@user.id}/all_tics"
             redirect "/dynamic/#{@user.id}/#{@user[:sesh_id]}/welcome"
         else
             erb :'registration/signup'
@@ -41,6 +40,13 @@ class MainController < Sinatra::Base
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id] )
         erb :'employee/main_pg_employees'
     end
+
+    get '/dynamic/:id/:sesh_id/logout' do
+        @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
+        @user[:sesh_id] = nil
+        @user.save
+        redirect '/login'
+    end 
 
     get '/dynamic/:id/:sesh_id/all_tickets' do
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
@@ -53,8 +59,9 @@ class MainController < Sinatra::Base
         erb :'ticket/user_creates_ticket_for_self'
     end
 
-    get '/dynamic/:id/:sesh_id/read_ticket' do
+    get '/dynamic/:id/:sesh_id/read_ticket/:ticket_id' do
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
+        @ticket = Ticket.find_by(id: params[:ticket_id])
         erb :'ticket/read_ticket'
     end
 
@@ -62,12 +69,5 @@ class MainController < Sinatra::Base
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
         erb :'ticket/update_delete'
     end
-
-    get '/dynamic/:id/:sesh_id/logout' do
-        @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
-        @user[:sesh_id] = nil
-        @user.save
-        redirect '/login'
-    end 
 
 end 
