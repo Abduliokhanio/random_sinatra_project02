@@ -1,0 +1,8 @@
+<h4>Update Ticket Below</h4>
+<form method="POST" action = "/dynamic/<%=@user.id%>/<%=@user.sesh_id%>/update_ticket/<%=@ticket.id%>">
+    <label for= "title">Title:</label><br>
+    <textarea rows="1" cols="20" type="text" id="title" name="title"><%=@ticket.title%></textarea><br>
+    <label for= "details">Details:</label><br>
+    <textarea rows="4" cols="50" type="text" id="details" name="details"><%=@ticket.details%></textarea><br>  
+    <br><input type="submit" value="Submit">
+</form>

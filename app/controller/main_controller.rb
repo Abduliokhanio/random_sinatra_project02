@@ -41,6 +41,15 @@ class MainController < Sinatra::Base
         redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/welcome"
     end 
 
+    post '/dynamic/:id/:sesh_id/update_ticket/:ticket_id' do
+        @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id] )
+        @ticket = Ticket.find_by(id: params[:ticket_id])
+        @ticket.title = params[:title]
+        @ticket.details = params[:details]
+        @ticket.save
+        redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/welcome"
+    end
+
     get '/dynamic/:id/:sesh_id/welcome' do
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id] )
         erb :'employee/main_pg_employees'
@@ -78,7 +87,8 @@ class MainController < Sinatra::Base
 
     get '/dynamic/:id/:sesh_id/update_ticket/:ticket_id' do 
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
-
+        @ticket = Ticket.find_by(id: params[:ticket_id])
+        erb :'ticket/update_ticket'
     end 
 
 end 
