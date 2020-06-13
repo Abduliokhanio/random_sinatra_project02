@@ -50,6 +50,5 @@ Here are your team's tickets:<br>
 </table>
 <br>
 
-<a href=welcome>Here are all the tickets the user is working on</a><br>
-
+<a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome"><%= @user.username %>'s tickets</a><br>
 <a href=logout>logout</a>
