@@ -25,7 +25,6 @@ class MainController < Sinatra::Base
 
     post '/loginauth' do
         @user = Employee.find_by(username: params[:username])
-
         @session = session
         if @user && @user.authenticate(params[:password])
             @user[:sesh_id] = rand(1..100000000000)
@@ -36,7 +35,10 @@ class MainController < Sinatra::Base
         end 
     end
 
-    post '/create_ticket' do
+    post '/dynamic/:id/:sesh_id/create_ticket' do
+        @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id] )
+        Ticket.create(title: params[:title], belongs_to: @user.username, details: params[:details], employee_id: @user.id)
+        redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/welcome"
     end 
 
     get '/dynamic/:id/:sesh_id/welcome' do
