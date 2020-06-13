@@ -4,8 +4,6 @@ this is the page where <%=@user.username%> can create their own tickets
 <form method="POST" action = "/create_ticket">
     <label for= "title">Title:</label><br>
     <input type="text" id="title" name="title"><br>
-    <label for= "belongs_to">Belongs To:</label><br>
-    <input type="text" id="belongs_to" name="belongs_to"><br>
     <label for= "details">Details:</label><br>
     <textarea rows="4" cols="50" type="text" id="details" name="details"></textarea><br>    
     <br><input type="submit" value="Submit">
