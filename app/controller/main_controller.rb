@@ -76,4 +76,8 @@ class MainController < Sinatra::Base
         redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/welcome"
     end
 
+    get '/dynamic/:id/:sesh_id/update_ticket/:ticket_id' do 
+        
+    end 
+
 end 
