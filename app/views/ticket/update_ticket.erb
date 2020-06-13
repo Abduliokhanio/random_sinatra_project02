@@ -6,3 +6,5 @@
     <textarea rows="4" cols="50" type="text" id="details" name="details"><%=@ticket.details%></textarea><br>  
     <br><input type="submit" value="Update">
 </form>
+
+<a href ="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/read_ticket/<%= @ticket.id %>">Cancel</a><br>
