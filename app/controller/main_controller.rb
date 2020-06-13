@@ -36,6 +36,9 @@ class MainController < Sinatra::Base
         end 
     end
 
+    post '/create_ticket' do
+    end 
+
     get '/dynamic/:id/:sesh_id/welcome' do
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id] )
         erb :'employee/main_pg_employees'
@@ -67,7 +70,6 @@ class MainController < Sinatra::Base
 
     get '/dynamic/:id/:sesh_id/delete_ticket/:ticket_id' do
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
-        #@ticket = Ticket.find_by(id: params[:ticket_id])
         Ticket.delete(params[:ticket_id].to_i)
         redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/welcome"
     end
