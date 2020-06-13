@@ -44,7 +44,7 @@ Here are your tickets:<br>
         <td><%=ticket.created_at%></td>
         <td><%=ticket.updated_at%></td>
         <td><a href =read_ticket/<%=@user.tickets[count].id%>>Read</a></td>
-        <td><a href =>Delete</a></td>
+        <td><a href = delete_ticket/<%=ticket.id%>>Delete</a></td>
         <%count += 1%>
         </tr>
     <%end%>
