@@ -32,6 +32,7 @@ Here are your tickets:<br>
         <th>Created At</th>
         <th>Updated At</th>
         <th>Read</th>
+        <th>Update</th>
         <th>Delete</th>
     </tr>
     <%count = 0%>
@@ -43,7 +44,8 @@ Here are your tickets:<br>
         <td><%=ticket.employee.username%></td>
         <td><%=ticket.created_at%></td>
         <td><%=ticket.updated_at%></td>
-        <td><a href =read_ticket/<%=@user.tickets[count].id%>>Read</a></td>
+        <td><a href =read_ticket/<%=ticket.id%>>Read</a></td>
+        <td><a href =update_ticket/<%=ticket.id%>>Update</a></td>
         <td><a href = delete_ticket/<%=ticket.id%>>Delete</a></td>
         <%count += 1%>
         </tr>
