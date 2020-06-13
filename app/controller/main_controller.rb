@@ -77,7 +77,8 @@ class MainController < Sinatra::Base
     end
 
     get '/dynamic/:id/:sesh_id/update_ticket/:ticket_id' do 
-        
+        @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
+
     end 
 
 end 
