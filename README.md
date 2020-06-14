@@ -16,6 +16,6 @@
 
  |X|  8)Ensure that users can edit and delete only their own resources - not resources created by other users.
 
- | |  9)Validate user input so bad data cannot be persisted to the database.
+ |X|  9)Validate user input so bad data cannot be persisted to the database.
 
  | |  10)BONUS: Display validation failures to user with error messages. (This is an optional feature, challenge yourself and give it a shot!)
