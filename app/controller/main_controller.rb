@@ -8,6 +8,11 @@ class MainController < Sinatra::Base
         erb :'session/login'
     end
 
+
+    get '/bootstrap_test' do
+        erb :'bootstrap_test'
+    end
+
     get '/signup' do
         erb :'registration/signup'
     end
