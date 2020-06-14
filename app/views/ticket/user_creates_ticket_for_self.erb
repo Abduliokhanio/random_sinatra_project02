@@ -1,11 +1,10 @@
-this is the page where <%=@user.username%> can create their own tickets
-
-<br><h4>Create A Ticket Below</h4>
+<h4>Create A Ticket Below</h4>
 <form method="POST" action = "/dynamic/<%=@user.id%>/<%=@user.sesh_id%>/create_ticket">
     <label for= "title">Title:</label><br>
     <input type="text" id="title" name="title"><br>
     <label for= "details">Details:</label><br>
     <textarea rows="4" cols="50" type="text" id="details" name="details"></textarea><br>  
+    <a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome">Cancel</a><br>
     <br><input type="submit" value="Submit">
 </form>
 

@@ -38,8 +38,12 @@ class MainController < Sinatra::Base
 
     post '/dynamic/:id/:sesh_id/create_ticket' do
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id] )
-        Ticket.create(title: params[:title], belongs_to: @user.username, details: params[:details], employee_id: @user.id)
-        redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/welcome"
+        if params[:title] != "" && params[:details] != ""  
+            Ticket.create(title: params[:title], belongs_to: @user.username, details: params[:details], employee_id: @user.id)
+            redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/welcome"
+        else 
+            redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/create_tickets"
+        end
     end 
 
     post '/dynamic/:id/:sesh_id/update_ticket/:ticket_id' do
