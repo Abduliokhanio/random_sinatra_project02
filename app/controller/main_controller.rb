@@ -5,10 +5,6 @@ class MainController < Sinatra::Base
     set :views, Proc.new { File.join(root, "../views/") }
 
     get '/' do
-        erb :'main_page'
-    end
-
-    get '/login' do 
         erb :'session/login'
     end
 
@@ -59,7 +55,7 @@ class MainController < Sinatra::Base
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
         @user[:sesh_id] = nil
         @user.save
-        redirect '/login'
+        redirect '/'
     end 
 
     get '/dynamic/:id/:sesh_id/all_tickets' do
