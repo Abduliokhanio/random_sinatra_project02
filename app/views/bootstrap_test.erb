@@ -36,53 +36,23 @@
          <div class="col-sm-6 col-md-4">
             <!-- Add bg-primary in form tag if want form background color-->
             <!--text-white if want text color white-->
-            <form action="#" class="shadow-lg p-4 text-white" style ="background-color:#1d2124b8;">
-            <form class="needs-validation" novalidate>
-               <div class="form-group">
-                  <i class="fas fa-user"></i><label for="email" class="pl-2 font-weight-bold">Email</label><input type="text"
-                     class="form-control" placeholder="Email">
-                  <!--Add text-white below if want text color white-->
-               </div>
-               <div class="form-group">
-                  <i class="fas fa-key"></i><label for="pass" class="pl-2 font-weight-bold">Password</label><input type="password"
-                     class="form-control" placeholder="Password">
-               </div>
-               
-               <div class="form-group">
-                  <label for="validationCustom05">Zip</label>
-                  <input type="text" class="form-control" id="validationCustom05" placeholder="Please provide a valid zip."required>
-                  <div class="invalid-feedback" > 
-                </div>
-    </div>
-
-               <button type="submit" class="btn btn-success mt-3 btn-block shadow-sm font-weight-bold">Submit</button>
-            </form>
-            </form>
+            
+               <form method="POST" action ="/loginauth" class="shadow-lg p-4 text-white needs-validation" style ="background-color:#1d2124b8;"novalidate>
+                  <div class="form-group">
+                     <i class="fas fa-user"></i><label for="username" class="pl-2 font-weight-bold">Username</label><input type="text"
+                        class="form-control" placeholder="Username" id="username" name="username">
+                     <!--Add text-white below if want text color white-->
+                  </div>
+                  <div class="form-group">
+                     <i class="fas fa-key"></i><label for="password" class="pl-2 font-weight-bold">Password</label><input type="password"
+                        class="form-control" placeholder="Password" id="password" name="password">
+                  </div>
+                  <button type="submit" class="btn btn-success mt-3 btn-block shadow-sm font-weight-bold" value="Submit">Login</button>
+               </form>
+            
          </div>
       </div>
    </div>
-
-
-   <script>
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function() {
-  'use strict';
-  window.addEventListener('load', function() {
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.getElementsByClassName('needs-validation');
-    // Loop over them and prevent submission
-    var validation = Array.prototype.filter.call(forms, function(form) {
-      form.addEventListener('submit', function(event) {
-        if (form.checkValidity() === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add('was-validated');
-      }, false);
-    });
-  }, false);
-})();
-</script>
 
 
    <!-- JQuery Popper Bootstrap -->
