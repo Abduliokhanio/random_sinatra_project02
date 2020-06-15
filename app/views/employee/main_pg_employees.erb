@@ -36,7 +36,7 @@ Here are your tickets:<br>
         <th>Delete</th>
     </tr>
     <%count = 0%>
-    <% @user.tickets.each do |ticket| %>
+    <% @user.tickets.reverse.each do |ticket| %>
         <tr>
         <td><%=ticket.id%></td>
         <td><%=ticket.title%></td>

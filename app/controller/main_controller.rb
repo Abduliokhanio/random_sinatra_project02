@@ -19,7 +19,8 @@ class MainController < Sinatra::Base
 
     post '/registration' do
         user_exist = Employee.find_by(username: params[:username])
-        if !user_exist && user_exist != nil
+        
+        if !user_exist && user_exist != ""
             @user = Employee.create(username: params[:username], password: params[:password])
             @user[:sesh_id] = rand(1..100000000000)
             @user.save

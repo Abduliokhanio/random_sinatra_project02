@@ -35,7 +35,7 @@ Here are your team's tickets:<br>
         <th>Read</th>
     </tr>
     <%count = 1%>
-    <% @tickets.each do |ticket| %>
+    <% @tickets.reverse.each do |ticket| %>
         <tr>
         <td><%=ticket.id%></td>
         <td><%=ticket.title%></td>
