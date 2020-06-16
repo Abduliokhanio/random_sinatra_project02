@@ -92,14 +92,22 @@ class MainController < Sinatra::Base
 
     get '/dynamic/:id/:sesh_id/delete_ticket/:ticket_id' do
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
-        Ticket.delete(params[:ticket_id].to_i)
-        redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/welcome"
+        if @user.id == @ticket.employee_id
+            Ticket.delete(params[:ticket_id].to_i)
+            redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/welcome"
+        else
+            redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/welcome"
+        end
     end
 
     get '/dynamic/:id/:sesh_id/update_ticket/:ticket_id' do 
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
         @ticket = Ticket.find_by(id: params[:ticket_id])
-        erb :'ticket/update_ticket'
+        if @user.id == @ticket.employee_id
+            erb :'ticket/update_ticket'
+        else
+            redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/welcome"
+        end
     end 
 
 end 
