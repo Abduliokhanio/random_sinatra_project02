@@ -33,6 +33,14 @@
          width: 100%;
          height: 100%;
       }
+
+      input:invalid:focus {
+         background-image: linear-gradient(pink, pink);
+      }
+
+      input:valid:focus {
+         background-image: linear-gradient(LightGreen, LightGreen);
+      }
    </style>
    <title>Login Form</title>
 </head>
@@ -45,12 +53,12 @@ animate__slow">
                 <form method="POST" action ="/loginauth" class="shadow-lg p-4 text-white" style ="background-color:#1d2124b8;">
                     <div class="form-group">
                      <i class="fas fa-user"></i><label for="username" class="pl-2 font-weight-bold">Username</label><input type="text"
-                        class="form-control" placeholder="Username" id="username" name="username">
+                        minlength="2" class="form-control" placeholder="Username" id="username" name="username" required>
                      <!--Add text-white below if want text color white-->
                   </div>
                   <div class="form-group">
                      <i class="fas fa-key"></i><label for="password" class="pl-2 font-weight-bold">Password</label><input type="text"
-                        class="form-control" placeholder="Password" id="password" name="password">
+                        minlength="2" class="form-control" placeholder="Password" id="password" name="password" required>
                   </div>
                   <a href="/signup">Signup</a><br>
                   <button type="submit" class="btn btn-success mt-3 btn-block shadow-sm font-weight-bold" value="Submit">Login</button>

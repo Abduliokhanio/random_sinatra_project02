@@ -15,19 +15,16 @@ class MainController < Sinatra::Base
 
     get '/signup' do
         erb :'registration/signup'
+        
     end
 
     post '/registration' do
-        user_exist = Employee.find_by(username: params[:username])
         
-        if !user_exist && user_exist != ""
             @user = Employee.create(username: params[:username], password: params[:password])
             @user[:sesh_id] = rand(1..100000000000)
             @user.save
             redirect "/dynamic/#{@user.id}/#{@user[:sesh_id]}/welcome"
-        else 
-            redirect "/signup"
-        end
+
     end
 
     post '/loginauth' do
