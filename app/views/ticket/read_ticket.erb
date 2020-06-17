@@ -67,37 +67,73 @@
       tr:nth-child(even) {
         background-color: #dddddd;
       }
+
+      .card {
+        margin-left:20px;
+        width: 800px;
+      }
+
       </style>
 
-      <h3 style="text-decoration: underline;">Ticket ID</h3>
-      <p><%=@ticket.id%></p>
+      <div class="card" >
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: underline;">Ticket ID</h5>
+          <p class = "text-muted"><%=@ticket.id%></p>
+        </div>
+      </div>
 
-      <h3 style="text-decoration: underline;">Ticket Title</h3>
-      <p><%=@ticket.title%></p>
+      <div class="card" >
+        <div class="card-body">
+          <h5 style="text-decoration: underline;">Ticket Title</h5>
+          <p class = "text-muted"><%=@ticket.title%></p>
+        </div>
+      </div>
 
-      <h3 style="text-decoration: underline;">Ticket Details</h3>
-      <p><%=@ticket.details%></p>
+      <div class="card" >
+        <div class="card-body">
+      <h5 style="text-decoration: underline;">Ticket Details</h5>
+      <p class = "text-muted"><%=@ticket.details%></p>
+        </div>
+      </div>
 
-      <h3 style="text-decoration: underline;">Owned By</h3>
-      <p><%=@ticket.employee.username%></p>
+      <div class="card" >
+        <div class="card-body">
+          <h5 style="text-decoration: underline;">Owned By</h5>
+          <p class = "text-muted"><%=@ticket.employee.username%></p>
+        </div>
+      </div>
 
-      <h3 style="text-decoration: underline;">Created At</h3>
-      <p><%=@ticket.created_at%></p>
+      <div class="card" >
+        <div class="card-body">      
+          <h5 style="text-decoration: underline;">Created At</h5>
+          <p class = "text-muted"><%=@ticket.created_at%></p>
+        </div>
+      </div>
 
-      <h3 style="text-decoration: underline;">Updated At</h3>
-      <p><%=@ticket.updated_at%></p>
+      <div class="card" >
+        <div class="card-body">
+          <h5 style="text-decoration: underline;">Updated At</h5>
+          <p class = "text-muted"><%=@ticket.updated_at%></p>
+        </div>
+      </div>
 
       <%if @ticket.employee.id == @user.id%>
-        <h3 style="text-decoration: underline;">Update</h3>
-        <p><a href = "/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/update_ticket/<%=@ticket.id%>">Update</a></p>
-        <h3 style="text-decoration: underline;">Delete</h3>
-        <p><a href = "/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/delete_ticket/<%=@ticket.id%>">Delete</a></p>
+
+        <div class="card" >
+          <div class="card-body">
+            <h5 style="text-decoration: underline;">Update</h5>
+            <a class="btn btn-primary" href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/update_ticket/<%=@ticket.id%>" role="button">Update</a>
+
+          </div>
+        </div>
+        
+          <div class="card" >
+            <div class="card-body">
+            <h5 style="text-decoration: underline;">Delete</h5>
+            <a class="btn btn-danger" href = "/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/delete_ticket/<%=@ticket.id%>" role="button">Delete</a>
+          </div>
+        </div>
+      
       <%end%>
-      ======================================<br>
-      <br>
-
-      <a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome"><%= @user.username %>'s tickets</a><br>
-      <a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/all_tickets">All Tickets</a> <br>
-      <a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/logout">logout</a>
-
+ 
 </html>
