@@ -23,7 +23,7 @@
     </head>
 
     <body>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark animate__animated animate__slideInDown animate__faster">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark animate__animated animate__slideInDown animate__fast">
     <a class="navbar-brand" href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -53,7 +53,8 @@
       crossorigin="anonymous"></script>
 
 <div class="col-sm-6">
-        <h4>Create A Ticket Below</h4>
+
+        <h4 class = "animate__animated animate__slideInDown animate__fast">Create A Ticket Below</h4>
         <form method="POST" action = "/dynamic/<%=@user.id%>/<%=@user.sesh_id%>/create_ticket">
             <label for= "title">Title:</label><br>
             <input type="text" id="title" name="title"><br>
