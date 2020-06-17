@@ -23,7 +23,7 @@
     </head>
 
     <body>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark animate__animated animate__fadeIn animate__faster">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark animate__animated animate__slideInDown animate__faster">
     <a class="navbar-brand" href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -59,8 +59,10 @@
             <input type="text" id="title" name="title"><br>
             <label for= "details">Details:</label><br>
             <textarea rows="4" cols="50" type="text" id="details" name="details"></textarea><br>  
-            <a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome">Cancel</a><br>
-            <br><input type="submit" value="Submit">
+            <br>
+            <a class="btn btn-danger" href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome" role="button">Cancel</a>
+            <button type="submit" class="btn btn-primary" value="Submit">Create Ticket</button>
+
         </form>
 <div>
 

@@ -44,7 +44,7 @@
   </style>
 </head>
 <body>
-  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark animate__animated animate__fadeIn animate__faster">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark animate__animated animate__slideInDown animate__fast">
     <a class="navbar-brand" href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome">Home Page</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -74,7 +74,7 @@
       crossorigin="anonymous"></script>
 
 <div class="col-sm-6">
- <h6 class = "animate__animated animate__fadeIn animate__fast">
+ <h6 class = "animate__animated animate__slideInDown animate__fast">
   welcome : <%=@user.username%><br>
   your employee id is : <%= @user.id%><br>
   </h6>
@@ -82,7 +82,7 @@
 
   <h2 class = "animate__animated animate__fadeIn animate__fast" style = "margin-left: 130px ">Here are your tickets:</h2>
 
-  <table class = "animate__animated ">
+  <table class = "animate__animated">
       <tr>
           <th>Ticket ID</th>
           <th>Ticket Title</th>
