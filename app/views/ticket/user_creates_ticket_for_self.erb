@@ -1,11 +1,71 @@
-<h4>Create A Ticket Below</h4>
-<form method="POST" action = "/dynamic/<%=@user.id%>/<%=@user.sesh_id%>/create_ticket">
-    <label for= "title">Title:</label><br>
-    <input type="text" id="title" name="title"><br>
-    <label for= "details">Details:</label><br>
-    <textarea rows="4" cols="50" type="text" id="details" name="details"></textarea><br>  
-    <a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome">Cancel</a><br>
-    <br><input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+
+        <!-- CSS ANIMATIONS -->
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
+
+    </head>
+
+    <body>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark animate__animated animate__fadeIn animate__faster">
+    <a class="navbar-brand" href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="create_tickets">Create Ticket<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="all_tickets">All Tickets</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="logout">Logout</a>
+        </li>      
+      </ul>
+    </div>
+  </nav>
+
+         <!-- JQuery Popper Bootstrap -->
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+
+<div class="col-sm-6">
+        <h4>Create A Ticket Below</h4>
+        <form method="POST" action = "/dynamic/<%=@user.id%>/<%=@user.sesh_id%>/create_ticket">
+            <label for= "title">Title:</label><br>
+            <input type="text" id="title" name="title"><br>
+            <label for= "details">Details:</label><br>
+            <textarea rows="4" cols="50" type="text" id="details" name="details"></textarea><br>  
+            <a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome">Cancel</a><br>
+            <br><input type="submit" value="Submit">
+        </form>
+<div>
+
+    </body>
+
+</html>
 
 
