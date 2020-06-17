@@ -19,12 +19,11 @@ class MainController < Sinatra::Base
     end
 
     post '/registration' do
-        
+
             @user = Employee.create(username: params[:username], password: params[:password])
             @user[:sesh_id] = rand(1..100000000000)
             @user.save
             redirect "/dynamic/#{@user.id}/#{@user[:sesh_id]}/welcome"
-
     end
 
     post '/loginauth' do
@@ -89,6 +88,7 @@ class MainController < Sinatra::Base
 
     get '/dynamic/:id/:sesh_id/delete_ticket/:ticket_id' do
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
+        @ticket = Ticket.find_by(id: params[:ticket_id])
         if @user.id == @ticket.employee_id
             Ticket.delete(params[:ticket_id].to_i)
             redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/welcome"
@@ -106,5 +106,6 @@ class MainController < Sinatra::Base
             redirect "/dynamic/#{@user.id}/#{@user.sesh_id}/welcome"
         end
     end 
+
 
 end 

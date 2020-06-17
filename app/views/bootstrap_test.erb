@@ -33,28 +33,26 @@
 </head>
 
 <body>
-   <div class="container-fluid">
-      <div class="row justify-content-center custom-margin">
-         <div class="col-sm-6 col-md-4">
-            <!-- Add bg-primary in form tag if want form background color-->
-            <!--text-white if want text color white-->
-            
-               <form method="POST" action ="/loginauth" class="shadow-lg p-4 text-white needs-validation" style ="background-color:#1d2124b8;"novalidate>
-                  <div class="form-group">
-                     <i class="fas fa-user"></i><label for="username" class="pl-2 font-weight-bold">Username</label><input type="text"
-                        class="form-control" placeholder="Username" id="username" name="username">
-                     <!--Add text-white below if want text color white-->
-                  </div>
-                  <div class="form-group">
-                     <i class="fas fa-key"></i><label for="password" class="pl-2 font-weight-bold">Password</label><input type="password"
-                        class="form-control" placeholder="Password" id="password" name="password">
-                  </div>
-                  <button type="submit" class="btn btn-success mt-3 btn-block shadow-sm font-weight-bold" value="Submit">Login</button>
-               </form>
-            
-         </div>
-      </div>
-   </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="create_tickets">Create Ticket<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="all_tickets">All Tickets</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="logout">Logout</a>
+      </li>      
+    </ul>
+  </div>
+</nav>
 
    <!-- JQuery Popper Bootstrap -->
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
