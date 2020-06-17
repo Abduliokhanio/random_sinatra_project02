@@ -1,52 +1,103 @@
-this is the page where a user can find more information about a particular ticket
-<br>
-<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+<!DOCTYPE html>
+<html lang="en">
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
+    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
 
-<h3 style="text-decoration: underline;">Ticket ID</h3>
-<p><%=@ticket.id%></p>
+    <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
 
-<h3 style="text-decoration: underline;">Ticket Title</h3>
-<p><%=@ticket.title%></p>
+        <!-- CSS ANIMATIONS -->
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
 
-<h3 style="text-decoration: underline;">Ticket Details</h3>
-<p><%=@ticket.details%></p>
+    </head>
 
-<h3 style="text-decoration: underline;">Owned By</h3>
-<p><%=@ticket.employee.username%></p>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark animate__animated animate__slideInDown animate__fast">
+    <a class="navbar-brand" href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<h3 style="text-decoration: underline;">Created At</h3>
-<p><%=@ticket.created_at%></p>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/dynamic/<%=@user.id%>/<%=@user.sesh_id%>/create_tickets">Create Ticket<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/dynamic/<%=@user.id%>/<%=@user.sesh_id%>/all_tickets">All Tickets</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/dynamic/<%=@user.id%>/<%=@user.sesh_id%>/logout">Logout</a>
+        </li>      
+      </ul>
+    </div>
+  </nav>
 
-<h3 style="text-decoration: underline;">Updated At</h3>
-<p><%=@ticket.updated_at%></p>
+         <!-- JQuery Popper Bootstrap -->
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
 
-<%binding.pry%>
+      <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
 
-<%if @ticket.employee.id == @user.id%>
-  <h3 style="text-decoration: underline;">Update</h3>
-  <p><a href = "/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/update_ticket/<%=@ticket.id%>">Update</a></p>
-  <h3 style="text-decoration: underline;">Delete</h3>
-  <p><a href = "/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/delete_ticket/<%=@ticket.id%>">Delete</a></p>
-<%end%>
-======================================<br>
-<br>
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
 
-<a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome"><%= @user.username %>'s tickets</a><br>
-<a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/all_tickets">All Tickets</a> <br>
-<a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/logout">logout</a>
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      </style>
+
+      <h3 style="text-decoration: underline;">Ticket ID</h3>
+      <p><%=@ticket.id%></p>
+
+      <h3 style="text-decoration: underline;">Ticket Title</h3>
+      <p><%=@ticket.title%></p>
+
+      <h3 style="text-decoration: underline;">Ticket Details</h3>
+      <p><%=@ticket.details%></p>
+
+      <h3 style="text-decoration: underline;">Owned By</h3>
+      <p><%=@ticket.employee.username%></p>
+
+      <h3 style="text-decoration: underline;">Created At</h3>
+      <p><%=@ticket.created_at%></p>
+
+      <h3 style="text-decoration: underline;">Updated At</h3>
+      <p><%=@ticket.updated_at%></p>
+
+      <%if @ticket.employee.id == @user.id%>
+        <h3 style="text-decoration: underline;">Update</h3>
+        <p><a href = "/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/update_ticket/<%=@ticket.id%>">Update</a></p>
+        <h3 style="text-decoration: underline;">Delete</h3>
+        <p><a href = "/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/delete_ticket/<%=@ticket.id%>">Delete</a></p>
+      <%end%>
+      ======================================<br>
+      <br>
+
+      <a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome"><%= @user.username %>'s tickets</a><br>
+      <a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/all_tickets">All Tickets</a> <br>
+      <a href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/logout">logout</a>
+
+</html>
