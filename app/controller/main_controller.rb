@@ -76,13 +76,14 @@ class MainController < Sinatra::Base
     end 
 
     get '/dynamic/:id/:sesh_id/create_tickets' do
-        @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
+        @user = Employee.find_by(id: params[:id])
         erb :'ticket/user_creates_ticket_for_self'
     end
 
     get '/dynamic/:id/:sesh_id/read_ticket/:ticket_id' do
         @user = Employee.find_by(id: params[:id], sesh_id: params[:sesh_id])
         @ticket = Ticket.find_by(id: params[:ticket_id])
+        binding.pry
         erb :'ticket/read_ticket'
     end
 
