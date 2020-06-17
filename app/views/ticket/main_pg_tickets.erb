@@ -34,7 +34,7 @@
     white-space: nowrap;
     text-overflow:ellipsis;
 	  overflow: hidden;
-    max-width: 250px;
+    max-width: 100px;
   }
 
   tr:nth-child(even) {
@@ -78,8 +78,9 @@
   </h6>
 </div>
 
-<h2 class = "animate__animated animate__fadeIn animate__fast" style = "margin-left: 190px ">Here are your team's tickets:</h2>
-  <table class = "animate__animated animate__fast">
+<h2 class = "animate__animated animate__slideInDown animate__fast" style = "margin-left: 190px ">Here are your team's tickets:</h2>
+  <table class = "table">
+    <thead class = "thead-dark">
       <tr>
           <th>Ticket ID</th>
           <th>Ticket Title</th>
@@ -89,6 +90,8 @@
           <th>Updated At</th>
           <th>Read</th>
       </tr>
+    </thead>
+    <tbody>
       <%count = 1%>
       <% @tickets.reverse.each do |ticket| %>
           <tr>
@@ -102,6 +105,7 @@
           <% count += 1 %>
           </tr>
       <%end%>
+      <tbody>
   </table>
   </body>
 </html>
