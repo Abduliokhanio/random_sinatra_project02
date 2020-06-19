@@ -13,6 +13,10 @@ class MainController < Sinatra::Base
         erb :'bootstrap_test'
     end
 
+    get '/preloader' do
+        erb :'preloader'
+    end
+
     get '/signup' do
         erb :'registration/signup'
         
