@@ -73,14 +73,17 @@
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
       crossorigin="anonymous"></script>
 
-<div class="col-sm-6">
- <h6 class = "animate__animated animate__slideInDown animate__fast">
+<div class="card animate__animated animate__slideInDown animate__fast" >
+<div class="card-body">
+ <h6 class = "card-title">
   welcome : <%=@user.username%><br>
-  your employee id is : <%= @user.id%><br>
-  </h6>
+  your employee id is : <%= @user.id%></h6>
+  <h1 class = "animate__animated animate__slideInDown animate__fast" >Here are your tickets:</h1>
+</div>
 </div>
 
-  <h2 class = "animate__animated animate__slideInDown animate__fast" style = "margin-left: 130px ">Here are your tickets:</h2>
+
+
 <div class="table-responsive">
   <table class = "table">
     <thead class = "thead-dark">
