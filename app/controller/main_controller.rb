@@ -24,7 +24,7 @@ class MainController < Sinatra::Base
 
     post '/registration' do
 
-            @user = Employee.create(username: params[:username], password: params[:password])
+            @user = Employee.create(name: params[:name], username: params[:username], password: params[:password])
             @user[:sesh_id] = rand(1..100000000000)
             @user.save
             redirect "/dynamic/#{@user.id}/#{@user[:sesh_id]}/welcome"

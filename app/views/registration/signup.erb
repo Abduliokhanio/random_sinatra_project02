@@ -53,14 +53,19 @@ animate__slow">
             <div class="col-sm-6 col-md-4">
                 <form method="POST" action ="/registration" class="shadow-lg p-4 text-white" style ="background-color:#1d2124b8;">
                     <div class="form-group">
+                     <i class="fas fa-user"></i><label for="name" class="pl-2 font-weight-bold">Name</label><input type="text"
+                        minlength="2" class="form-control" placeholder="name" id="name" name="name" title="Please enter your full name EX: Jimmy John" required >
+                     <!--Add text-white below if want text color white-->
+                     </div>
+                    <div class="form-group">
                      <i class="fas fa-user"></i><label for="username" class="pl-2 font-weight-bold">Username</label><input type="text"
                         minlength="2" class="form-control" placeholder="Username" id="username" name="username" pattern="^[[A-Z]|[a-z]][[A-Z]|[a-z]|\\d|[_]]{5,29}$" title="Please keep username between 6-15 charecters  EX Username: JohnyJohnyYesPapa01" required >
                      <!--Add text-white below if want text color white-->
-                  </div>
-                  <div class="form-group">
+                     </div>
+                     <div class="form-group">
                      <i class="fas fa-key"></i><label for="password" class="pl-2 font-weight-bold">Password</label><input type="text"
                          minlength="2" class="form-control" placeholder="Password" id="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&])[A-Za-z\d@$!%*?&]{8,25}$" title="Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number and one special character EX:password Fakepassword01!" required>
-                  </div>
+                     </div>
                   <a href="/">Login</a><br>
                   <button type="submit" class="btn btn-success mt-3 btn-block shadow-sm font-weight-bold" value="Submit">Sign Up</button>
                 </form>
