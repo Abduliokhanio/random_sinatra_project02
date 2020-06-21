@@ -1,1 +1,80 @@
-logout page
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+   <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
+
+   <!-- Font Awesome -->
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous">
+
+   <!-- CSS ANIMATIONS -->
+   <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
+
+   <style>
+      .custom-margin {
+         margin-top: 20vh;
+      }
+
+      /* If you add background image it will look like transparent form*/
+       body {
+         background-image: url('images/test.gif');
+         background-repeat: no-repeat;
+         
+         width: 100%;
+         height: 100%;
+      }
+
+      input:invalid:focus {
+         background-image: linear-gradient(pink, pink);
+      }
+
+      input:valid:focus {
+         background-image: linear-gradient(LightGreen, LightGreen);
+      }
+   </style>
+   <link rel="stylesheet" href="stylesheets/style.css">
+   <title>Login Form</title>
+</head>
+<body>
+   <div class="preload">
+            <img class ="airplane" src="images\airplane.png" alt="airplane">
+            <h3>Logging you out...</h3>
+            <img class = "cloud1" src="images/cloud.png" alt="cloud1">
+            <img class = "cloud2" src="images/cloud.png" alt="cloud2">
+            <img class = "cloud3" src="images/cloud.png" alt="cloud3">
+        </div>
+
+    <div class="container-fluid">
+        <h1 style="color:white;" style = text-white>Some Company's Login Page</h1>
+        <div class="row justify-content-center custom-margin animate__animated animate__fadeIn animate__slower animate__delay-6s">
+            <div class="col-sm-6 col-md-4">
+                <form method="POST" action ="/loginauth" class="shadow-lg p-4 text-white" style ="background-color:#1d2124b8;">
+                    <div class="form-group">
+                     <i class="fas fa-user"></i><label for="username" class="pl-2 font-weight-bold">Username</label><input type="text"
+                         minlength= "5" class="form-control" placeholder="Username" id="username" name="username" pattern="^[[A-Z]|[a-z]][[A-Z]|[a-z]|\\d|[_]]{5,29}$" title="Please keep username between 6-15 charecters  EX Username: JohnyJohnyYesPapa01" required >
+                     <!--Add text-white below if want text color white-->
+                  </div>
+                  <div class="form-group">
+                     <i class="fas fa-key"></i><label for="password" class="pl-2 font-weight-bold">Password</label><input type="text"
+                        minlength="2" class="form-control" placeholder="Password" id="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#@$!%*?&])[A-Za-z\d@$!%*?&]{8,25}$" title="Minimum eight and maximum 10 characters, at least one uppercase letter, one lowercase letter, one number and one special character EX:password Fakepassword01!"
+ required>
+                  </div>
+                  <a href="/signup">Signup</a><br>
+                  <button type="submit" class="btn btn-success mt-3 btn-block shadow-sm font-weight-bold" value="Submit">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+      <script src="javascripts/app.js"></script>
+</body>
