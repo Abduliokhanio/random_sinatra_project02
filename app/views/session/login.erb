@@ -42,13 +42,21 @@
          background-image: linear-gradient(LightGreen, LightGreen);
       }
    </style>
+   <link rel="stylesheet" href="stylesheets/style.css">
    <title>Login Form</title>
 </head>
 <body>
-    <div class="container-fluid ">
+   <div class="preload">
+            <img class ="airplane" src="images\airplane.png" alt="airplane">
+            <h3>Landing on the main page...</h3>
+            <img class = "cloud1" src="images/cloud.png" alt="cloud1">
+            <img class = "cloud2" src="images/cloud.png" alt="cloud2">
+            <img class = "cloud3" src="images/cloud.png" alt="cloud3">
+        </div>
+
+    <div class="container-fluid">
         <h1 style="color:white;" style = text-white>Some Company's Login Page</h1>
-        <div class="row justify-content-center custom-margin animate__animated animate__fadeIn Class name	Default speed time
-animate__slow">
+        <div class="row justify-content-center custom-margin animate__animated animate__fadeIn animate__slower animate__delay-6s">
             <div class="col-sm-6 col-md-4">
                 <form method="POST" action ="/loginauth" class="shadow-lg p-4 text-white" style ="background-color:#1d2124b8;">
                     <div class="form-group">
@@ -67,4 +75,6 @@ animate__slow">
             </div>
         </div>
     </div>
+
+      <script src="javascripts/app.js"></script>
 </body>
