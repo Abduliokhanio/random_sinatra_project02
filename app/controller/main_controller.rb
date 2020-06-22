@@ -1,9 +1,7 @@
 class MainController < Sinatra::Base
     register Sinatra::ActiveRecordExtension
     enable :sessions
-    #set :session_secret, SecureRandom.hex(64)
-    #set :session_secret, "secret"
-    #set :session_secret, "secretsession"
+
     set :session_secret, "f650ed69344bab0084199bb8cc9aa5a1bd6756c3b57ad67023255af0fc3795057e"
     set :views, Proc.new { File.join(root, "../views/") }
 
@@ -16,30 +14,10 @@ class MainController < Sinatra::Base
         erb :'bootstrap_test'
     end
 
-    get '/preloader' do
-        erb :'preloader'
-    end
-
-    get '/sessions_set' do 
-        session[:foo] = 'hello'
-        if session[:foo] == 'hello'
-            binding.pry
-            redirect '/fetch'
-          else
-            "Session value has not been set!"
-          end
-    end 
-
-    get '/fetch' do
-        binding.pry
-        "You did it! session[:foo] value: #{session[:foo]}.\nMove on to Part II of this lab at '/second_exercise' "
-      end
-
     ## bs code end
 
     get '/signup' do
         erb :'registration/signup'
-        
     end
 
     post '/signup' do
