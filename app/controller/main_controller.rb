@@ -66,7 +66,7 @@ class MainController < Sinatra::Base
             Ticket.create(title: params[:title], belongs_to: @user.username, details: params[:details], employee_id: @user.id)
             redirect "/ticket/#{@user.id}"
         else 
-            redirect "/ticket/#{@user.id}/#{@user.sesh_id}/create_tickets"
+            redirect "/ticket/#{@user.id}/create_tickets"
         end
     end 
 
