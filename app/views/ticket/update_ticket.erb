@@ -23,7 +23,7 @@
     </head>
 
   <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark animate__animated animate__slideInDown animate__fast">
-    <a class="navbar-brand" href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome">Home</a>
+    <a class="navbar-brand" href="/ticket/<%= @user.id %>">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -31,13 +31,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/dynamic/<%=@user.id%>/<%=@user.sesh_id%>/create_tickets">Create Ticket<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/ticket/<%=@user.id%>/create_tickets">Create Ticket<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/dynamic/<%=@user.id%>/<%=@user.sesh_id%>/all_tickets">All Tickets</a>
+          <a class="nav-link" href="/ticket/<%=@user.id%>/all_tickets">All Tickets</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/dynamic/<%=@user.id%>/<%=@user.sesh_id%>/logout">Logout</a>
+          <a class="nav-link" href="/ticket/<%=@user.id%>/logout">Logout</a>
         </li>     
       </ul>
     </div>
@@ -53,13 +53,13 @@
 
 <div class="col-sm-6">
     <h4 class= "animate__animated animate__slideInDown animate__fast"> Update Ticket Below</h4>
-    <form method="POST" action = "/dynamic/<%=@user.id%>/<%=@user.sesh_id%>/update_ticket/<%=@ticket.id%>">
+    <form method="POST" action = "/ticket/<%=@user.id%>/update_ticket/<%=@ticket.id%>">
         <label for= "title">Title:</label><br>
         <textarea rows="1" cols="20" type="text" id="title" name="title"><%=@ticket.title%></textarea><br>
         <label for= "details">Details:</label><br>
         <textarea rows="4" cols="50" type="text" id="details" name="details"><%=@ticket.details%></textarea><br>  
         <br>
-        <a class="btn btn-danger" href="/dynamic/<%= @user.id %>/<%= @user.sesh_id %>/welcome" role="button">Cancel</a>
+        <a class="btn btn-danger" href="/ticket/<%= @user.id %>" role="button">Cancel</a>
         <button type="submit" class="btn btn-primary" value="Submit">Update Ticket</button>
     </form>
 </div>
